@@ -23,3 +23,32 @@ plt.title("Time Loss by Turn")
 plt.xticks(Turns)
 plt.grid(True)
 plt.show()
+
+turns = D_A["Turn Number"]
+driver_A_time = D_A["Turn_Time"]
+driver_B_time = D_B["Turn_Time"]
+x = np.arange (len(turns))
+width = 0.35
+plt.figure(figsize=(10,5))
+plt.bar(
+    x - width / 2,
+    driver_A_time,
+    width,
+    label = "Driver A",
+    color = "Red"
+)
+plt.bar(
+    x + width / 2,
+    driver_B_time,
+    width,
+    label = "Driver B",
+    color = "Blue"
+)
+plt.xticks(x, turns)
+plt.xlabel("Turn Number")
+plt.ylabel("Turn Time (In Seconds)")
+plt.title("Indivisual Turn VS Time")
+plt.legend()
+plt.grid(axis="y", alpha = 0.3)
+plt.tight_layout()
+plt.show()
